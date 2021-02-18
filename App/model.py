@@ -29,6 +29,7 @@ import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
 assert cf
+import time as tm 
 
 """
 Se define la estructura de un catálogo de libros.
@@ -46,6 +47,7 @@ def newCatalog():
     una lista vacia para los generos y una lista vacia para la asociación
     generos y libros. Retorna el catalogo inicializado.
     """
+    
     catalog = {'books': None,
                'authors': None,
                'tags': None,
@@ -56,7 +58,7 @@ def newCatalog():
                                     cmpfunction=compareauthors)
     catalog['tags'] = lt.newList('ARRAY_LIST',
                                  cmpfunction=comparetagnames)
-    catalog['book_tags'] = lt.newList('ARRAY_LIST')
+    catalog['book_tags'] = lt.newList('SINGLE_LINKED')
 
     return catalog
 
